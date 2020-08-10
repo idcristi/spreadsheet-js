@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import "~normalize.css";
+
+@import "./components/header";
+@import "./components/table";
+@import "./components/toolbar";
+@import "./components/formula";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open-Sans', sans-serif;
+  font-size: 12px;
+}
+
+.spreadsheet {
+  position: relative;
+}
