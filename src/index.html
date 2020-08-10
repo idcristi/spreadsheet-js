@@ -5,13 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Spreadsheet</title>
 </head>
 
 <body>
   <div id="app" class="container">
     <div class="spreadsheet">
-      <div class="spreadsheet__header"></div>
+      <div class="spreadsheet__header">
+        <input type="text" class="input" value="New Table">
+        <div>
+          <div class="button">
+            <i class="material-icons">delete</i>
+          </div>
+
+          <div class="button">
+            <i class="material-icons">exit_to_app</i>
+          </div>
+        </div>
+      </div>
       <div class="spreadsheet__toolbar"></div>
       <div class="spreadsheet__formula"></div>
       <div class="spreadsheet__table"></div>
