@@ -3,6 +3,13 @@ import {SpreadsheetComponent} from '@core/SpreadsheetComponent';
 export class Toolbar extends SpreadsheetComponent {
   static className = 'spreadsheet__toolbar';
 
+  constructor($root, options) {
+    super($root, {
+      name: 'Toolbar',
+      listeners: ['click'],
+    });
+  }
+
   toHTML() {
     return `
      <div class="button">
@@ -24,5 +31,9 @@ export class Toolbar extends SpreadsheetComponent {
         <i class="material-icons">format_underlined</i>
       </div>
     `;
+  }
+
+  onClick(event) {
+    console.log(event.target);
   }
 }
