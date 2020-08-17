@@ -1,6 +1,5 @@
 class Dom {
   constructor(selector) {
-    this.$$listeners = {};
     this.$el =
       typeof selector === 'string'
         ? document.querySelector(selector)
@@ -8,7 +7,7 @@ class Dom {
   }
 
   html(html) {
-    if (typeof html === 'string') {
+    if (html) {
       this.$el.innerHTML = html;
       return this;
     }
@@ -20,12 +19,12 @@ class Dom {
     return this;
   }
 
-  on(eventType, callback) {
-    this.$el.addEventListener(eventType, callback);
+  on(event, cb) {
+    this.$el.addEventListener(event, cb);
   }
 
-  off(eventType, callback) {
-    this.$el.removeEventListener(eventType, callback);
+  off(event, cb) {
+    this.$el.removeEventListener(event, cb);
   }
 
   append(node) {
@@ -39,6 +38,26 @@ class Dom {
     }
     return this;
   }
+
+  closest(selector) {
+    return $(this.$el.closest(selector));
+  }
+
+  getCoords() {
+    return this.$el.getBoundingClientRect();
+  }
+
+  get data() {
+    return this.$el.dataset;
+  }
+
+  findAll(selector) {
+    return this.$el.querySelectorAll(selector);
+  }
+
+  css(styles = {}) {
+    Object.keys(styles).forEach((key) => (this.$el.style[key] = styles[key]));
+  }
 }
 
 export function $(selector) {
@@ -46,9 +65,9 @@ export function $(selector) {
 }
 
 $.create = (tagName, classes = '') => {
-  const el = document.createElement(tagName);
+  const $el = document.createElement(tagName);
   if (classes) {
-    el.classList.add(classes);
+    $el.classList.add(classes);
   }
-  return $(el);
+  return $($el);
 };
